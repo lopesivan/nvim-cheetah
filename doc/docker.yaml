@@ -1,0 +1,4 @@
+type: "new"
+cheetha: "Dockerfile"
+data: {'chave1': descrição, 'chave2': como usar, 'chave3': "mantenedor"}
+
