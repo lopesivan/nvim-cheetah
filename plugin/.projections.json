@@ -1,0 +1,14 @@
+{
+  "cheetah/*.py": {
+    "type": "class"
+  },
+
+  "*.vim": {
+    "type": "vim"
+  },
+
+  "main.py": {
+    "type": "main"
+  }
+}
+
