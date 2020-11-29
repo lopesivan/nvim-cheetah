@@ -8,7 +8,7 @@ try:
     from Cheetah.Template import Template
 
     curpath = vim.eval("$HOME")
-    sys.path = [curpath+"/.config/nvim/local-plugins/cheetah/plugin"] + sys.path
+    sys.path = [curpath+"/.config/nvim/site/pack/packer/start/nvim-cheetah/plugin"] + sys.path
 
     import cheetah
     import yaml
