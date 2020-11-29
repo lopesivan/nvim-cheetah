@@ -27,9 +27,9 @@ if !has('python') && !has('python3')
 endif
 
 function Cheetah()
-	let plugin_name = "cheetah"
-	let path = expand('$HOME').'/.config/nvim/local-plugins/'.plugin_name.'/plugin/'
-	let main = path . "main.py"
+    let plugin_name = "nvim-cheetah"
+    let path = expand('$HOME').'/.config/nvim/site/pack/packer/start/'.plugin_name.'/plugin/'
+    let main = path . "main.py"
     exec "pyfile ".main
 endfunction
 
