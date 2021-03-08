@@ -25,7 +25,7 @@ try:
         YML = "{}/{}".format(vim.eval('expand("%:p:h")'), "cheetah.yml")
         for f in glob.glob(YML):
             # print('{} {}'.format('file  :', f))
-            config_file = file(f, 'r')
+            config_file = open(f, 'r')
             #TODO: 🐱    >  YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the defaul t Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
             #data_model = yaml.load(config_file)
             data_model = yaml.load(config_file, Loader=yaml.FullLoader)
@@ -42,7 +42,8 @@ try:
 
                 buffer = vim.current.window.buffer
                 cheetah.Redirect(buffer)
-                print(dataout)
+                print("dataout")
+                #print(dataout)
 
                 # To redirect output back just do
                 sys.stdout = sys._stdout
