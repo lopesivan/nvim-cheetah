@@ -42,8 +42,7 @@ try:
 
                 buffer = vim.current.window.buffer
                 cheetah.Redirect(buffer)
-                print("dataout")
-                #print(dataout)
+                print(dataout)
 
                 # To redirect output back just do
                 sys.stdout = sys._stdout
