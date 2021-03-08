@@ -30,13 +30,13 @@ function Cheetah()
     let plugin_name = "nvim-cheetah"
     let path = expand('$HOME').'/.config/nvim/site/pack/packer/start/'.plugin_name.'/plugin/'
     let main = path . "main.py"
-    exec "pyfile ".main
+    exec "py3file ".main
 endfunction
 
 call Cheetah()
 
-command Cheetah :py cheetahMainTemplate()
-command CheetahInput :py cheetahPythonInput()
+command Cheetah :python3 cheetahMainTemplate()
+command CheetahInput :python3 cheetahPythonInput()
 " ----------------------------------------------------------------------------
 
 let &cpo=s:keepcpo
