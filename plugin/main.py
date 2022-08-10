@@ -6,8 +6,8 @@ import os
 import glob
 from Cheetah.Template import Template
 
-curpath = vim.eval("$HOME")
-sys.path = [curpath+"/.config/nvim/site/pack/packer/start/nvim-cheetah/plugin"] + sys.path
+curpath = vim.eval("$NVIM_BEGINNER")
+sys.path = [curpath+"/nvim/site/pack/packer/start/nvim-cheetah/plugin"] + sys.path
 
 import cheetah
 import yaml
@@ -32,7 +32,7 @@ def cheetahMainTemplate():
 
         type_name = data_model['type']
         template_name = data_model['cheetah']
-        view = os.path.expandvars("$HOME/.config/nvim/cheetah/"+type_name+"/"+template_name+".cheetah")
+        view = os.path.expandvars("$NVIM_BEGINNER/nvim/cheetah/"+type_name+"/"+template_name+".cheetah")
 
         if os.path.isfile(view):
 
