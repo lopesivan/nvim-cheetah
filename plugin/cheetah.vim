@@ -28,7 +28,7 @@ endif
 
 function Cheetah()
     let plugin_name = "nvim-cheetah"
-    let path = expand('$NVIM_BEGINNER').'/share/nvim/site/pack/packer/start/'.plugin_name.'/plugin/'
+    let path = expand('$NVIM_BEGINNER').'/share/nvim/lazy/'.plugin_name.'/plugin/'
     let main = path . "main.py"
     exec "pyfile ".main
 endfunction

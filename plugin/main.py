@@ -7,7 +7,7 @@ import glob
 from Cheetah.Template import Template
 
 curpath = vim.eval("$NVIM_BEGINNER")
-sys.path = [curpath+"/share/nvim/site/pack/packer/start/nvim-cheetah/plugin"] + sys.path
+sys.path = [curpath+"/share/nvim/lazy/nvim-cheetah/plugin"] + sys.path
 
 import cheetah
 import yaml
