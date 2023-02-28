@@ -8,6 +8,7 @@ from Cheetah.Template import Template
 
 curpath = vim.eval("$NVIM_BEGINNER")
 sys.path = [curpath+"/share/nvim/lazy/nvim-cheetah/plugin"] + sys.path
+#                     share/nvim/lazy/nvim-cheetah
 
 import cheetah
 import yaml
