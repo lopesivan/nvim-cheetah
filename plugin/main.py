@@ -6,39 +6,40 @@ import os
 import glob
 from Cheetah.Template import Template
 
-curpath = vim.eval("$NVIM_BEGINNER")
-sys.path = [curpath+"/share/nvim/lazy/nvim-cheetah/plugin"] + sys.path
+curpath = vim.eval("$NDE_APP_CONFIG")
+sys.path = [curpath + "-local/lazy/nvim-cheetah/plugin"] + sys.path
 #                     share/nvim/lazy/nvim-cheetah
 
 import cheetah
 import yaml
 
-def cheetahPythonInput(message='input'):
-    vim.command('call inputsave()')
+
+def cheetahPythonInput(message="input"):
+    vim.command("call inputsave()")
     vim.command("let user_input = input('" + message + ": ')")
-    vim.command('call inputrestore()')
-    #print('{} {}'.format('before:', message))
-    return vim.eval('user_input')
+    vim.command("call inputrestore()")
+    # print('{} {}'.format('before:', message))
+    return vim.eval("user_input")
+
 
 def cheetahMainTemplate():
-
     YML = "{}/{}".format(vim.eval('expand("%:p:h")'), "cheetah.yml")
     for f in glob.glob(YML):
         # print('{} {}'.format('file  :', f))
-        config_file = open(f, 'r')
-        #TODO: 🐱    >  YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the defaul t Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
-        #data_model = yaml.load(config_file)
+        config_file = open(f, "r")
+        # TODO: 🐱    >  YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the defaul t Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+        # data_model = yaml.load(config_file)
         data_model = yaml.load(config_file, Loader=yaml.FullLoader)
         config_file.close()
 
-        type_name = data_model['type']
-        template_name = data_model['cheetah']
-        view = os.path.expandvars("$NVIM_BEGINNER/nvim/cheetah/"+type_name+"/"+template_name+".cheetah")
+        type_name = data_model["type"]
+        template_name = data_model["cheetah"]
+        view = os.path.expandvars(
+            "$NDE_APP_CONFIG/cheetah/" + type_name + "/" + template_name + ".cheetah"
+        )
 
         if os.path.isfile(view):
-
-            dataout = Template(open(view).read(),
-                               searchList=[{'d': data_model}])
+            dataout = Template(open(view).read(), searchList=[{"d": data_model}])
 
             buffer = vim.current.window.buffer
             cheetah.Redirect(buffer)
@@ -58,4 +59,3 @@ def cheetahMainTemplate():
             # print('{} {}'.format('before:', number_of_lines))
         else:
             print("File not found:" + view)
-
